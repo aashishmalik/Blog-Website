@@ -1,0 +1,24 @@
+<% include ./partials/header %>
+
+<div class="ui xyx container ">
+    <div class="ui huge header">
+        Blog APP
+    </div>
+    <% blogs.forEach((blog)=>{ %>
+    <div class="container">
+        <img src="<%= blog.image %>"></img>
+        <span><%= blog.created.toDateString() %></span>
+        <div><a class="header" href="/blogs/<%= blog._id %>"><%= blog.title%></a></div>
+        <p><%- blog.body.substring(0,101) %>...</p>
+
+        <a class="ui  basic violet button" href="/blogs/<%= blog._id %>">
+            Read More
+            <i class="right chevron icon"></i>
+        </a>
+        <p>================================</p>
+    </div>
+    <% }) %>
+</div>
+
+
+<% include ./partials/footer %>
